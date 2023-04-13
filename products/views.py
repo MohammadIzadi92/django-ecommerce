@@ -7,10 +7,14 @@ from .serializers import ProductsSerializer
 
 
 class ProductsViewSets(viewsets.ModelViewSet):
+    """
+    This view responds to all requests.
+    """
     queryset = Product.objects.all()
     serializer_class = ProductsSerializer
-    
+
     def get_permissions(self):
+        # Permision for actions
         if self.action == 'list':
             permission_classes = [AllowAny]
         else:

@@ -8,6 +8,9 @@ from .custom_user_manager import CustomUserManager
 
 
 class CustomUser(AbstractUser):
+    """
+    Personalize django default user
+    """
     SEX_CHOICES = (
         ('male', 'male'),
         ('female', 'female'),
@@ -41,5 +44,5 @@ class CustomUser(AbstractUser):
 
     USERNAME_FIELD = "phone_number"
     REQUIRED_FIELDS = ["first_name", "last_name", "birthday", "sex"]
+    # change user manager
     object = CustomUserManager()
-    

@@ -6,7 +6,11 @@ from django.contrib.auth import get_user_model
 
 
 class Category(models.Model):
-    parent = models.ForeignKey("self", default=None, blank=True, null=True, on_delete=models.CASCADE)
+    """
+    This class has the necessary fields for products category
+    """
+    parent = models.ForeignKey(
+        "self", default=None, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
 
     def __str__(self):
@@ -14,9 +18,13 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """
+    This class is a minimal products model.
+    All fields is required.
+    """
     seller = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
-    name = models.CharField(max_length=150, )
+    name = models.CharField(max_length=150)
     price = models.PositiveIntegerField()
     stock = models.PositiveIntegerField()
     image = models.ImageField(upload_to='images')
@@ -25,11 +33,18 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def image_tag(self):
+        """
+        This function returns a body to display the image in the admin panel.
+        """
         return format_html("<img height=60 width=100 style='border-radius: 8px;' src='{}'>".format(self.image.url))
 
     def category_to_str(self):
+        """
+        This function returns product categories in a specific format for display in the admin panel.
+        Put / between categories.
+        """
         categories = self.category.all()
         if categories:
             return ' / '.join([category.title for category in categories])

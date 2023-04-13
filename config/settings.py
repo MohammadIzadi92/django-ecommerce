@@ -39,18 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    
+
     # django rest framework
     'rest_framework',
     'rest_framework.authtoken',
-    
+
     # django rest auth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth',
     'dj_rest_auth.registration',
-    
+
     # app
     'accounts.apps.AccountsConfig',
     'products.apps.ProductsConfig',
@@ -163,17 +163,17 @@ REST_FRAMEWORK = {
 REST_AUTH = {
     'USE_JWT': True,
     'JWT_AUTH_HTTPONLY': False,
-    
+
     'JWT_AUTH_COOKIE': 'access',
     'JWT_AUTH_REFRESH_COOKIE': 'refresh',
-    
+
     'LOGIN_SERIALIZER': 'accounts.serializers.LoginSerializer',
     'REGISTER_SERIALIZER': 'accounts.serializers.RegisterSerializer',
     'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserDetailsSerializer',
 }
 
-# Base url to serve media files  
-MEDIA_URL = '/media/'  
-      
-# Path where media is stored  
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored
 MEDIA_ROOT = BASE_DIR / 'media'

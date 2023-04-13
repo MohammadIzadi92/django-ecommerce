@@ -21,8 +21,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # End points for products
     path("api/products/", include("products.urls")),
+    
+    # End points for accounts
     path("api/accounts/", include("accounts.urls")),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
+# config media files
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
