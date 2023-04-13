@@ -24,7 +24,8 @@ class CustomUser(AbstractUser):
             )
         ]
     )
-    name = models.CharField(_("name"), max_length=150)
+    first_name = models.CharField(_("first name"), max_length=150)
+    last_name = models.CharField(_("last name"), max_length=150)
     birthday = models.DateField(_('birthday'))
     sex = models.CharField(
         _('sex'),
@@ -38,7 +39,7 @@ class CustomUser(AbstractUser):
         ]
     )
 
-    object = CustomUserManager()
     USERNAME_FIELD = "phone_number"
-    REQUIRED_FIELDS = ["name", "birthday", "sex"]
+    REQUIRED_FIELDS = ["first_name", "last_name", "birthday", "sex"]
+    object = CustomUserManager()
     
