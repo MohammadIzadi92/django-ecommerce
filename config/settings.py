@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     
     # app
     'accounts.apps.AccountsConfig',
+    'products.apps.ProductsConfig',
 ]
 
 MIDDLEWARE = [
@@ -166,3 +167,9 @@ REST_AUTH = {
     'REGISTER_SERIALIZER': 'accounts.serializers.RegisterSerializer',
     'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserDetailsSerializer',
 }
+
+# Base url to serve media files  
+MEDIA_URL = '/media/'  
+      
+# Path where media is stored  
+MEDIA_ROOT = BASE_DIR / 'media'

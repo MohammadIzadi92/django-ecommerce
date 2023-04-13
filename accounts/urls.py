@@ -8,6 +8,8 @@ from dj_rest_auth.views import (
 
 from dj_rest_auth.registration.views import RegisterView
 
+app_name = "accounts"
+
 urlpatterns = [
     # URLs that do need access token
     path('login/', LoginView.as_view(), name='rest_login'),
